@@ -83,4 +83,74 @@ Arquivo `Tarefa 2.php`:
 
 #### 3 - Criar uma simples classe que possa ler o conteúdo de um arquivo texto. Essa classe deverá conter um atributo privado que será usado para guardar o conteúdo do arquivo lido, um método para carregar o arquivo e outro para visualizar o atributo.
 
+Arquivo `Tarefa 3.php`
+
+```php
+<?php	
+
+class ArquivoTexto
+{
+	public function  __construct() {
+        if (isset($_POST) && !empty($_POST)) {
+        	$this->carregarArquivo();
+        	$this->visualizarConteudo();
+        }
+    }
+
+    //Atributo privado para guardar o conteudo
+	private $conteudo;
+
+	//Método para obter o conteudo
+	public function getConteudo(){
+		return $this->conteudo;
+	}
+
+	//Método para gravar o valor do conteúdo
+	public function setConteudo($conteudo){
+		$this->conteudo = $conteudo;
+	}
+
+	//Método para carregar o arquivo enviado pelo formulário e guardar no atributo privado $conteudo
+	public function carregarArquivo(){
+		$conteudo = file_get_contents($_FILES['ArquivoTexto']['tmp_name']);
+		$this->setConteudo($conteudo);
+	}
+
+	//Método para visualizar o conteudo
+	public function visualizarConteudo(){
+		echo $this->getConteudo();
+	}
+}
+```
+
 #### 4 - Utilizando a classe criada acima, criar um form que solicite ao usuário um arquivo e que ao submeter seja visualizado o conteúdo.
+
+Arquivo `Tarefas 4.php`
+
+```php
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Tarefa 4
+	</title>
+
+</head>
+<body>
+	
+	<form method="POST" action="" enctype="multipart/form-data">
+		<input type="file" name="ArquivoTexto">
+		<input type="submit" name="Enviar">
+	</form>
+	
+	<!-- Após submeter o formulário, o conteudo será exibido -->
+	<p>
+		<?php	
+			require("Tarefa 3.php");
+			$text = new ArquivoTexto();
+		?>
+	</p>
+
+</body>
+</html>
+```
