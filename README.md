@@ -42,9 +42,7 @@ function sortearDezenas(){
 	<title>Tarefa 2</title>
 </head>
 <body>
-	<?php 
-		require('Tarefa 1.php');
-	?>
+	<?php require('Tarefa 1.php'); ?>
 
 	<?php for ($num_apostas = 0; $num_apostas < 3; ++$num_apostas): ?>
 		<?php $dezenas = sortearDezenas(); ?>
