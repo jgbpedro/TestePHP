@@ -1,7 +1,7 @@
 # Teste PHP
 Teste para Monuv Câmeras em Nuvem
 
-## Palpite da Megasena
+## Palpite da Mega sena
 
 #### 1 - Criar uma função que retorne um array com 6 dezenas aleatórias entre 1 e 60, atentando que os números nunca se repitam e que estejam na ordem crescente.
 
