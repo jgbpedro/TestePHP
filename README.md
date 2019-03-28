@@ -6,33 +6,26 @@ Teste para Monuv Câmeras em Nuvem
 #### 1 - Criar uma função que retorne um array com 6 dezenas aleatórias entre 1 e 60, atentando que os números nunca se repitam e que estejam na ordem crescente.
 
 ```php
-function sortearDezenas(){
-	//Array para guardar as 6 dezenas
+function sortearDezenas(){	
+	//Array para guardar uma dezena com valor entre 1 e 60
 	$dezenas = [];
 
-	for ($i=0; $i < 6; $i++) { 
-		//Array para guardar uma dezena de números entre 1 e 60
-		$dezena = [];
+	//Para cada índice, será sorteado um número
+	for ($j=0; $j < 6; $j++) { 
+		
+		//Se o número não for repetido, será adicionado ao array de dezena
+		while (true) {
+			$numero = rand(1,60);
 
-		//Para cada índice, será sorteado um número
-		for ($j=0; $j < 10; $j++) { 
-			
-			//Se o número não for repetido, será adicionado ao array de dezena
-			while (true) {
-				$numero = rand(1,60);
-
-				if(!in_array($numero, $dezena)){
-					array_push($dezena, $numero);
-					break;
-				}	
-			}
-
+			if(!in_array($numero, $dezenas)){
+				array_push($dezenas, $numero);
+				break;
+			}	
 		}
-		//Os números serão organizados em ordem crescente
-		sort($dezena);
-		//O array contendo uma dezena é adicionado ao array de dezenas
-		array_push($dezenas, $dezena);
+
 	}
+	//Os números serão organizados em ordem crescente
+	sort($dezenas);
 
 	//Retorna o array com as 6 dezenas
 	return $dezenas;
