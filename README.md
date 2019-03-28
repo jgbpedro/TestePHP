@@ -13,7 +13,7 @@ function sortearDezenas(){
 	//Para cada índice, será sorteado um número
 	for ($j=0; $j < 6; $j++) { 
 		
-		//Se o número não for repetido, será adicionado ao array de dezena
+		//Se o número não for repetido, será adicionado ao array de dezenas
 		while (true) {
 			$numero = rand(1,60);
 
